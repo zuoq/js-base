@@ -20,3 +20,20 @@ function shallowCopy(src) {
     }
     return false
 }
+
+
+//深拷贝
+function deepCopy(obj){
+    let str, newobj = obj.constructor === Array ? [] : {};
+    if(typeof obj !== 'object'){
+        return;
+    } else if(window.JSON){
+        str = JSON.stringify(obj);
+        newobj = JSON.parse(str);
+    } else {
+        for(let i in obj){
+            newobj[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i];
+        }
+    }
+    return newobj;
+}

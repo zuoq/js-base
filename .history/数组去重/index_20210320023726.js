@@ -50,17 +50,3 @@ function unique4(arr) {
   }
   return n;
 }
-
-//方法五：
-function unique5(arr) {
-  const map = new Map();
-  const newArr = [];
-  const len = arr.length;
-  for(let i=0;i<len;i++) {
-    if(!map.has(arr[i])) {
-      map.set(arr[i], arr[i]); //使用map存数据
-      newArr.push(arr[i]);
-    }
-  }
-  return newArr;
-}
